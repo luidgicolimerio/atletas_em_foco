@@ -2,21 +2,23 @@ from flask import Flask, render_template, jsonify
 import requests
 import json
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
 # Salva em um arquivo binário o json de resposta da API
-def salva_dict(api_response):
+def salva_dict(api_response, esporte):
 
     data = json.loads(api_response)
-    pd.to_pickle(data, r'C:\workspace\atletas_em_foco\assets\api_response.pkl')
+    pd.to_pickle(data, rf'C:\workspace\atletas_em_foco\assets\api_response_{esporte}.pkl')
 
     return
 
-@app.route('/')
-def index():
-    data = pd.read_pickle(r'C:\workspace\atletas_em_foco\assets\api_response.pkl')
-    response = data["response"][1]   # 1200 jogos
+@app.route('/sport/<sport_name>/<int:game_id>')
+def index(game_id, sport_name):
+    file_path = os.path.join('assets', f'api_response_{sport_name}.pkl')
+    data = pd.read_pickle(file_path)
+    response = data["response"][game_id]   # 1200 jogos
     dados = {
         'date':      response['date'],
         'home_team': response["teams"]["home"]["name"],
@@ -45,7 +47,7 @@ def basquete_game():     # League ID( NBA = 12 ), Season ( 2024-2025 ), data ( Y
 
     response = requests.request("GET", url, headers=headers, data=payload)
 
-    salva_dict(response.text)
+    salva_dict(response.text, "basquete")
 
     return jsonify({"message": "Requisição realizada com sucesso", "Jogos":response.text}), 200
 
