@@ -89,6 +89,23 @@ def handball(game_id):
     }
     return render_template('index.html', data=dados)
 
+#Football
+@app.route('/football/<int:game_id>')
+def football(game_id):
+    file_path = os.path.join('assets', 'api_response_handball.pkl')
+    data = pd.read_pickle(file_path)
+    response = data["response"][game_id]
+    dados = {
+        'date':      response["fixture"]["date"],
+        'home_team': response["teams"]["home"]["name"],
+        'home_logo': response["teams"]["home"]["logo"],
+        'away_team': response["teams"]["away"]["name"],
+        'away_logo': response["teams"]["away"]["logo"],
+        'home_score':response["goals"]["home"],
+        'away_score':response["goals"]["away"],
+    }
+    return render_template('index.html', data=dados)
+
 ######################### Rotas de Dados #########################################
 
 # # Retorna um json lido do pkl salvo
@@ -162,8 +179,27 @@ def handball_game():
 
     return jsonify({"message": "Requisição realizada com sucesso", "Jogos":response.text}), 200
 
-# futebol  - Diferente
-# MMA - Diferente
+# Retorna os jogso do dia anterior
+@app.route('/football_game', methods=['GET'])
+def football_game():
+    url = "https://v3.football.api-sports.io/fixtures?date=2024-10-22"
+
+    payload={}
+    headers = {
+    'x-rapidapi-key': '28d4d30590983b427633258b52a9684f',
+    'x-rapidapi-host': 'v3.football.api-sports.io'
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
+
+
+    salva_dict(response.text, "football")
+
+    return jsonify({"message": "Requisição realizada com sucesso", "Jogos":response.text}), 200
+
+
+# futebol  - Diferente +/-
+# MMA - Diferente - Stand By
 
 # handball - Igual Check
 # basquete - Diferente Check
