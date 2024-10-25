@@ -38,8 +38,10 @@ nav ul li a {
 }
 
 .user-icons a img {
+    position:absolute;
+    right:20px;
+    top:4%;
     width: 20px;
-    margin-left: 73vw;
 }
 
 .favoritos {
