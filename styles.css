@@ -46,21 +46,26 @@ nav ul li a {
 
 .favoritos {
     background-color: #228B22;
-    color: white;
-    text-align: center;
+    color: black;
     padding: 100px;
+}
+
+.favoritos .fav {
+    position: absolute;
+    right: 45%;
+    top: 15%;
 }
 
 .favoritos .slider {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 50px;
 }
 
 .slider img {
-    width: 150px;
-    height: 150px;
+    width: 171px;
+    height: 125px;
 }
 
 .slider button {
@@ -70,7 +75,7 @@ nav ul li a {
 }
 
 .slider button img {
-    width: 30px; /* Ajuste a largura da imagem conforme necessário */
+    width: 50px; /* Ajuste a largura da imagem conforme necessário */
     height: auto; /* Mantém a proporção da imagem */
 }
 
@@ -99,7 +104,7 @@ section.esportes .esporte:hover {
 }
 
 section.esportes .esporte img {
-    width: 100px;
+    width: 200px;
     height: 100px;
 }
 
@@ -108,11 +113,6 @@ footer {
     padding: 20px;
     background-color: #228B22;
     color: white;
-}
-
-footer .adsense img {
-    width: 150px;
-    margin: 10px;
 }
 
 nav ul {
