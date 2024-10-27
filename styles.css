@@ -79,18 +79,37 @@ nav ul li a {
     height: auto; /* Mantém a proporção da imagem */
 }
 
+.slider .esporte {
+    width: 400px;
+    background-color: #228B22;
+    border: 1px solid #0D0D0D;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+.slider .esporte:hover {
+    transform: scale(1.05);
+}
+
+.slider .esporte img {
+    width: 200px;
+    height: 100px;
+}
+
 /* Seções de Esportes */
 section.esportes {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    padding: 20px;
+    padding: 50px;
     background-color: white;
 }
 
 section.esportes .esporte {
-    width: 200px;
+    width: 400px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     text-align: center;
@@ -109,10 +128,16 @@ section.esportes .esporte img {
 }
 
 footer {
-    text-align: center;
+    text-align: start;
     padding: 20px;
     background-color: #228B22;
     color: white;
+}
+
+lfooter .logo img {
+    border: 1px solid #000000;
+    border-radius: 40px;
+    height: 40px;
 }
 
 nav ul {
