@@ -12,7 +12,7 @@ body {
 
 header {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: white;
@@ -20,40 +20,67 @@ header {
     gap: 20px;
 }
 
+header .left-header
+{
+    display: flex;
+    align-content: center;
+}
+
 header .logo img {
     height: 50px;
+    padding-right: 10px;
+}
+
+nav 
+{
+    display: flex;
+    align-content: center;
 }
 
 nav ul {
     list-style-type: none;
     display: flex;
-    gap: 10px;
+    gap: 20px;
     justify-content: start;
+}
+
+nav ul li
+{
+    display: flex;
+    align-content: center;
 }
 
 nav ul li a {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    align-content: center;
 }
 
 .user-icons a img {
-    position:absolute;
-    right:20px;
-    top:4%;
-    width: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+.user-icons
+{
+    display: flex;
+    align-content: center;
 }
 
 .favoritos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: #228B22;
     color: black;
-    padding: 100px;
+    padding-top: 40px;
+    padding-bottom: 60px;
 }
 
-.favoritos .fav {
-    position: absolute;
-    right: 45%;
-    top: 15%;
+.favoritos h2 {
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 .favoritos .slider {
