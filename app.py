@@ -1,8 +1,14 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 import requests
 import json
 import pandas as pd
 import os
+
+os.environ['GROQ_API_KEY'] = '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'
+
+from langchain_groq import ChatGroq
+
+llm=ChatGroq(model="llama-3.1-70b-versatile")
 
 app = Flask(__name__)
 
@@ -36,6 +42,11 @@ def basquete(game_id):
         'home_score':response["scores"]["home"]["total"],
         'away_score':response["scores"]["away"]["total"],
     }
+    # # Criação da notícia
+    # url = 'http://127.0.0.1:5000/gera_noticia'
+    # response = requests.post(url, json=dados)
+    # print(response.json())
+
     return render_template('index.html', data=dados)
 
 #Volei
@@ -197,6 +208,37 @@ def football_game():
 
     return jsonify({"message": "Requisição realizada com sucesso", "Jogos":response.text}), 200
 
+# # Gera notícia a partir de dados passados
+@app.route('/gera_noticia/basquete/<int:game_id>', methods=['POST'])
+def gera_noticia():
+    file_path = os.path.join('assets', 'api_response_basquete.pkl')
+    data = pd.read_pickle(file_path)
+    response = data["response"][10]
+    dados = {
+        'date':      response['date'],
+        'home_team': response["teams"]["home"]["name"],
+        'home_logo': response["teams"]["home"]["logo"],
+        'away_team': response["teams"]["away"]["name"],
+        'away_logo': response["teams"]["away"]["logo"],
+        'home_score':response["scores"]["home"]["total"],
+        'away_score':response["scores"]["away"]["total"],
+    }
+    messages = [
+        (
+            "system",
+            """Você é um assistente que possui acesso a dados de partidas de esporte.
+               Você deve a partir desses dados gerar uma notícia.
+               Exemplo: Time A ganhou de lavada do Time B por 26x10, tiveram muitos atores
+               importantes nessa vitória, como o atleta fulano de tal e siclano de tal.
+               Gere notícias curtas, porém que deem destaque para as estatiscas recebidas por você
+               O prompt conterá tais estátiscicas.
+               """,
+        ),
+        ("human", f"{dados}"), 
+    ]
+    ai_msg = llm.invoke(messages)
+    print(ai_msg.content) 
+    return jsonify({"message": "Requisição realizada com sucesso", "Jogos":ai_msg.content}), 200
 
 # futebol  - Diferente +/-
 # MMA - Diferente - Stand By
