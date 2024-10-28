@@ -17,46 +17,112 @@ header {
     padding: 10px 20px;
     background-color: white;
     color: black;
+    gap: 20px;
+}
+
+header .left-header
+{
+    display: flex;
+    align-content: center;
 }
 
 header .logo img {
     height: 50px;
+    padding-right: 10px;
+}
+
+nav 
+{
+    display: flex;
+    align-content: center;
 }
 
 nav ul {
     list-style-type: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
+    justify-content: start;
+}
+
+nav ul li
+{
+    display: flex;
+    align-content: center;
 }
 
 nav ul li a {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    align-content: center;
 }
 
 .user-icons a img {
     width: 30px;
-    margin-left: 15px;
+    height: 30px;
+}
+
+.user-icons
+{
+    display: flex;
+    align-content: center;
 }
 
 .favoritos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: #228B22;
-    color: white;
+    color: black;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.favoritos h2 {
     text-align: center;
-    padding: 20px;
+    padding-bottom: 20px;
 }
 
 .favoritos .slider {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 50px;
 }
 
 .slider img {
-    width: 150px;
-    height: 150px;
+    width: 171px;
+    height: 125px;
+}
+
+.slider button {
+    background: none; /* Remove o fundo do botão */
+    border: none; /* Remove a borda do botão */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+}
+
+.slider button img {
+    width: 50px; /* Ajuste a largura da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.slider .esporte {
+    width: 400px;
+    background-color: #228B22;
+    border: 1px solid #0D0D0D;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+.slider .esporte:hover {
+    transform: scale(1.05);
+}
+
+.slider .esporte img {
+    width: 200px;
+    height: 100px;
 }
 
 /* Seções de Esportes */
@@ -65,12 +131,12 @@ section.esportes {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    padding: 20px;
+    padding: 50px;
     background-color: white;
 }
 
 section.esportes .esporte {
-    width: 200px;
+    width: 400px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     text-align: center;
@@ -84,20 +150,21 @@ section.esportes .esporte:hover {
 }
 
 section.esportes .esporte img {
-    width: 100px;
+    width: 200px;
     height: 100px;
 }
 
 footer {
-    text-align: center;
+    text-align: start;
     padding: 20px;
-    background-color: #006400;
+    background-color: #228B22;
     color: white;
 }
 
-footer .adsense img {
-    width: 150px;
-    margin: 10px;
+lfooter .logo img {
+    border: 1px solid #000000;
+    border-radius: 40px;
+    height: 40px;
 }
 
 nav ul {
