@@ -3,6 +3,7 @@ import requests
 import json
 import pandas as pd
 import os
+from datetime import datetime
 
 os.environ['GROQ_API_KEY'] = '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'
 
@@ -34,7 +35,7 @@ def sport(game_id, sport_name):
     data = pd.read_pickle(file_path)
     response = data["response"][game_id]
     if sport_name == "basquete":
-            dados = {
+        dados = {
             'date':      response['date'],
             'home_team': response["teams"]["home"]["name"],
             'home_logo': response["teams"]["home"]["logo"],
@@ -42,6 +43,27 @@ def sport(game_id, sport_name):
             'away_logo': response["teams"]["away"]["logo"],
             'home_score':response["scores"]["home"]["total"],
             'away_score':response["scores"]["away"]["total"],
+        }
+    elif sport_name == "football":
+        dados = {
+            'date':      response["fixture"]["date"],
+            'home_team': response["teams"]["home"]["name"],
+            'home_logo': response["teams"]["home"]["logo"],
+            'away_team': response["teams"]["away"]["name"],
+            'away_logo': response["teams"]["away"]["logo"],
+            'home_score':response["goals"]["home"],
+            'away_score':response["goals"]["away"],
+        }
+    elif sport_name == "mma":
+        dados = {
+            'date':      response['date'],
+            'category':  response['category'],
+            'home_team': response["fighters"]["first"]["name"],
+            'home_logo': response["fighters"]["first"]["logo"],
+            'home_score':response["fighters"]["first"]["winner"],
+            'away_team': response["fighters"]["second"]["name"],
+            'away_logo': response["fighters"]["second"]["logo"],
+            'away_score':response["fighters"]["second"]["winner"],
         }
     else:
         dados = {
@@ -60,22 +82,6 @@ def sport(game_id, sport_name):
     
     return render_template('index.html', data=dados)
 
-#Football
-@app.route('/football/<int:game_id>')
-def football(game_id):
-    file_path = os.path.join('assets', 'api_response_handball.pkl')
-    data = pd.read_pickle(file_path)
-    response = data["response"][game_id]
-    dados = {
-        'date':      response["fixture"]["date"],
-        'home_team': response["teams"]["home"]["name"],
-        'home_logo': response["teams"]["home"]["logo"],
-        'away_team': response["teams"]["away"]["name"],
-        'away_logo': response["teams"]["away"]["logo"],
-        'home_score':response["goals"]["home"],
-        'away_score':response["goals"]["away"],
-    }
-    return render_template('index.html', data=dados)
 
 ######################### Rotas de Dados #########################################
 
@@ -150,10 +156,10 @@ def handball_game():
 
     return jsonify({"message": "Requisição realizada com sucesso", "Jogos":response.text}), 200
 
-# Retorna os jogso do dia anterior
 @app.route('/football_game', methods=['GET'])
 def football_game():
-    url = "https://v3.football.api-sports.io/fixtures?date=2024-10-22"
+    data_atual = datetime.now().strftime("%Y-%m-%d")
+    url = f"https://v3.football.api-sports.io/fixtures?date={data_atual}"
 
     payload={}
     headers = {
@@ -165,6 +171,25 @@ def football_game():
 
 
     salva_dict(response.text, "football")
+
+    return jsonify({"message": "Requisição realizada com sucesso", "Jogos":response.text}), 200
+
+
+@app.route('/mma_game', methods=['GET'])
+def mma_game():
+    data_atual = datetime.now().strftime("%Y-%m-%d")
+    url = f"https://v1.mma.api-sports.io/fights?date=2023-08-26"
+
+    payload={}
+    headers = {
+    'x-rapidapi-key': '28d4d30590983b427633258b52a9684f',
+    'x-rapidapi-host': 'v1.mma.api-sports.io'
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
+
+
+    salva_dict(response.text, "mma")
 
     return jsonify({"message": "Requisição realizada com sucesso", "Jogos":response.text}), 200
 
@@ -183,6 +208,27 @@ def gera_noticia(sport_name, game_id):
             'away_logo': response["teams"]["away"]["logo"],
             'home_score':response["scores"]["home"]["total"],
             'away_score':response["scores"]["away"]["total"],
+        }
+    elif sport_name == "football":
+        dados = {
+            'date':      response["fixture"]["date"],
+            'home_team': response["teams"]["home"]["name"],
+            'home_logo': response["teams"]["home"]["logo"],
+            'away_team': response["teams"]["away"]["name"],
+            'away_logo': response["teams"]["away"]["logo"],
+            'home_score':response["goals"]["home"],
+            'away_score':response["goals"]["away"],
+        }
+    elif sport_name == "mma":
+        dados = {
+            'date':      response['date'],
+            'category':  response['category'],
+            'home_team': response["fighters"]["first"]["name"],
+            'home_logo': response["fighters"]["first"]["logo"],
+            'home_score':response["fighters"]["first"]["winner"],
+            'away_team': response["fighters"]["second"]["name"],
+            'away_logo': response["fighters"]["second"]["logo"],
+            'away_score':response["fighters"]["second"]["winner"],
         }
     else:
         dados = {
