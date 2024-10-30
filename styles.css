@@ -154,6 +154,44 @@ section.esportes .esporte img {
     height: 100px;
 }
 
+section.noticia-principal .noticia {
+    width: 400px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+section.noticia-principal .noticia:hover {
+    transform: scale(1.05);
+}
+
+section.noticia-principal .noticia img {
+    width: 200px;
+    height: 100px;
+}
+
+section.banners .noticia {
+    width: 400px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+section.banners .noticia:hover {
+    transform: scale(1.05);
+}
+
+section.banners .noticia img {
+    width: 200px;
+    height: 100px;
+}
+
 footer {
     text-align: start;
     padding: 20px;
