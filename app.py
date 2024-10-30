@@ -27,77 +27,37 @@ def index():
     # return render_template('index.html')
     return "Hello World"
 
-#Basquete
-@app.route('/basquete/<int:game_id>')
-def basquete(game_id):
-    file_path = os.path.join('assets', 'api_response_basquete.pkl')
+#Esportes
+@app.route('/sport/<sport_name>/<int:game_id>')
+def sport(game_id, sport_name):
+    file_path = os.path.join('assets', f'api_response_{sport_name}.pkl')
     data = pd.read_pickle(file_path)
     response = data["response"][game_id]
-    dados = {
-        'date':      response['date'],
-        'home_team': response["teams"]["home"]["name"],
-        'home_logo': response["teams"]["home"]["logo"],
-        'away_team': response["teams"]["away"]["name"],
-        'away_logo': response["teams"]["away"]["logo"],
-        'home_score':response["scores"]["home"]["total"],
-        'away_score':response["scores"]["away"]["total"],
-    }
-    # # Criação da notícia
-    # url = 'http://127.0.0.1:5000/gera_noticia'
-    # response = requests.post(url, json=dados)
-    # print(response.json())
-
-    return render_template('index.html', data=dados)
-
-#Volei
-@app.route('/volei/<int:game_id>')
-def volei(game_id):
-    file_path = os.path.join('assets', 'api_response_volei.pkl')
-    data = pd.read_pickle(file_path)
-    response = data["response"][game_id]
-    dados = {
-        'date':      response['date'],
-        'home_team': response["teams"]["home"]["name"],
-        'home_logo': response["teams"]["home"]["logo"],
-        'away_team': response["teams"]["away"]["name"],
-        'away_logo': response["teams"]["away"]["logo"],
-        'home_score':response["scores"]["home"],
-        'away_score':response["scores"]["away"],
-    }
-    return render_template('index.html', data=dados)
-
-#Rugby
-@app.route('/rugby/<int:game_id>')
-def rugby(game_id):
-    file_path = os.path.join('assets', 'api_response_rugby.pkl')
-    data = pd.read_pickle(file_path)
-    response = data["response"][game_id]
-    dados = {
-        'date':      response['date'],
-        'home_team': response["teams"]["home"]["name"],
-        'home_logo': response["teams"]["home"]["logo"],
-        'away_team': response["teams"]["away"]["name"],
-        'away_logo': response["teams"]["away"]["logo"],
-        'home_score':response["scores"]["home"],
-        'away_score':response["scores"]["away"],
-    }
-    return render_template('index.html', data=dados)
-
-#Handball
-@app.route('/handball/<int:game_id>')
-def handball(game_id):
-    file_path = os.path.join('assets', 'api_response_handball.pkl')
-    data = pd.read_pickle(file_path)
-    response = data["response"][game_id]
-    dados = {
-        'date':      response['date'],
-        'home_team': response["teams"]["home"]["name"],
-        'home_logo': response["teams"]["home"]["logo"],
-        'away_team': response["teams"]["away"]["name"],
-        'away_logo': response["teams"]["away"]["logo"],
-        'home_score':response["scores"]["home"],
-        'away_score':response["scores"]["away"],
-    }
+    if sport_name == "basquete":
+            dados = {
+            'date':      response['date'],
+            'home_team': response["teams"]["home"]["name"],
+            'home_logo': response["teams"]["home"]["logo"],
+            'away_team': response["teams"]["away"]["name"],
+            'away_logo': response["teams"]["away"]["logo"],
+            'home_score':response["scores"]["home"]["total"],
+            'away_score':response["scores"]["away"]["total"],
+        }
+    else:
+        dados = {
+            'date':      response['date'],
+            'home_team': response["teams"]["home"]["name"],
+            'home_logo': response["teams"]["home"]["logo"],
+            'away_team': response["teams"]["away"]["name"],
+            'away_logo': response["teams"]["away"]["logo"],
+            'home_score':response["scores"]["home"],
+            'away_score':response["scores"]["away"],
+        }
+    # Criação da notícia
+    url = f'http://127.0.0.1:5000/gera_noticia/sport/{sport_name}/{game_id}'
+    response = requests.post(url, json=dados)
+    print(response.json())
+    
     return render_template('index.html', data=dados)
 
 #Football
@@ -209,20 +169,31 @@ def football_game():
     return jsonify({"message": "Requisição realizada com sucesso", "Jogos":response.text}), 200
 
 # # Gera notícia a partir de dados passados
-@app.route('/gera_noticia/basquete/<int:game_id>', methods=['POST'])
-def gera_noticia():
-    file_path = os.path.join('assets', 'api_response_basquete.pkl')
+@app.route('/gera_noticia/sport/<sport_name>/<int:game_id>', methods=['POST'])
+def gera_noticia(sport_name, game_id):
+    file_path = os.path.join('assets', f'api_response_{sport_name}.pkl')
     data = pd.read_pickle(file_path)
-    response = data["response"][10]
-    dados = {
-        'date':      response['date'],
-        'home_team': response["teams"]["home"]["name"],
-        'home_logo': response["teams"]["home"]["logo"],
-        'away_team': response["teams"]["away"]["name"],
-        'away_logo': response["teams"]["away"]["logo"],
-        'home_score':response["scores"]["home"]["total"],
-        'away_score':response["scores"]["away"]["total"],
-    }
+    response = data["response"][game_id]
+    if sport_name == "basquete":
+            dados = {
+            'date':      response['date'],
+            'home_team': response["teams"]["home"]["name"],
+            'home_logo': response["teams"]["home"]["logo"],
+            'away_team': response["teams"]["away"]["name"],
+            'away_logo': response["teams"]["away"]["logo"],
+            'home_score':response["scores"]["home"]["total"],
+            'away_score':response["scores"]["away"]["total"],
+        }
+    else:
+        dados = {
+            'date':      response['date'],
+            'home_team': response["teams"]["home"]["name"],
+            'home_logo': response["teams"]["home"]["logo"],
+            'away_team': response["teams"]["away"]["name"],
+            'away_logo': response["teams"]["away"]["logo"],
+            'home_score':response["scores"]["home"],
+            'away_score':response["scores"]["away"],
+        }
     messages = [
         (
             "system",
@@ -242,11 +213,6 @@ def gera_noticia():
 
 # futebol  - Diferente +/-
 # MMA - Diferente - Stand By
-
-# handball - Igual Check
-# basquete - Diferente Check
-# volei - Igual Check
-# rugby - Igual Check
 
 if __name__ == '__main__':
     app.run(debug=True)
