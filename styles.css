@@ -27,8 +27,9 @@ header .left-header
 }
 
 header .logo img {
+    border: 2px solid #000000;
+    border-radius: 40px;
     height: 50px;
-    padding-right: 10px;
 }
 
 nav 
@@ -42,6 +43,7 @@ nav ul {
     display: flex;
     gap: 20px;
     justify-content: start;
+    padding-left: 20px;
 }
 
 nav ul li
@@ -218,11 +220,26 @@ footer {
     color: white;
 }
 
+
 footer .logo img {
     border: 1px solid #000000;
     border-radius: 40px;
     height: 40px;
 }
+
+whiteFooter {
+    text-align: start;
+    padding: 20px;
+    background-color: #ffffff;
+    color: black;
+}
+
+whiteFooter .logo img {
+    border: 1px solid #000000;
+    border-radius: 40px;
+    height: 40px;
+}
+
 
 nav ul {
     display: flex;
