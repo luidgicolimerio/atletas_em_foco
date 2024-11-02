@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Info</title>
+    <style>
+        .team-logo {
+            width: 100px;
+            height: auto;
+        }
+        .game-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Game Information</h1>
+
+    <div class="game-container">
+        <div class="team-info">
+            <h2>{{ data.home_team }}</h2>
+            <img src="{{ data.home_logo }}" alt="{{ data.home_team }} Logo" class="team-logo">
+            <p>Score: {{ data.home_score }}</p>
+        </div>
+
+        <div>
+            <h2>VS</h2>
+            <p>Date: {{ data.date }}</p>
+        </div>
+
+        <div class="team-info">
+            <h2>{{ data.away_team }}</h2>
+            <img src="{{ data.away_logo }}" alt="{{ data.away_team }} Logo" class="team-logo">
+            <p>Score: {{ data.away_score }}</p>
+        </div>
+    </div>
+    <p>{{noticia.Jogos}}</p>
+
+</body>
+</html>

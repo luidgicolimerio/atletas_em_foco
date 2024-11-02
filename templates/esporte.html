@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esporte</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Cabeçalho do Site -->
+    <header>
+        <div class="left-header">
+            <div class="logo">
+                <img src="../assets/images/logo.png">
+            </div>
+            <nav>
+                <ul class="left-menu">
+                    <li><a href="#">Futebol ▼</a></li>
+                    <li><a href="#">Vôlei ▼</a></li>
+                    <li><a href="#">Handebol ▼</a></li>
+                    <li><a href="#">Basquete ▼</a></li>
+                    <li><a href="#">MMA ▼</a></li>
+                    <li><a href="#">Rugby ▼</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="user-icons">
+            <a href="#"><img src="icon-settings.png"></a>
+        </div>
+    </header>
+
+<!-- Notícia Principal -->
+<section class="noticia-principal">
+    <a href="#">
+        <div class="noticia">
+            <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="noticia-p"> 
+            <h3>Notícia Principal</h3>
+        </div>
+    </a>
+</section>
+
+<!-- Seção de Banners -->
+<section class="banners">
+    <a class="noticia" href="/sport/{{ esporte }}/0"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-1"> 
+        <div class="noticia">
+            <h3>Notícia 1</h3>
+        </div>
+    </a>
+    <a class="noticia" href="/sport/{{ esporte }}/1"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-2">
+        <div class="noticia">
+            <h3>Notícia 2</h3>
+        </div>
+    </a>
+    <a class="noticia" href="/sport/{{ esporte }}/2"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-3"> 
+        <div class="noticia">
+            <h3>Notícia 3</h3>
+        </div>
+    </a>
+    <a class="noticia" href="/sport/{{ esporte }}/3"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-4">
+        <div class="noticia">
+            <h3>Notícia 4</h3>
+        </div>
+    </a>
+    <a class="noticia" href="/sport/{{ esporte }}/4"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-5"> 
+        <div class="noticia">
+            <h3>Notícia 5</h3>
+        </div>
+    </a>
+    <a class="noticia" href="/sport/{{ esporte }}/5"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-6"> 
+        <div class="noticia">
+            <h3>Notícia 6</h3>
+        </div>
+    </a>
+    <a class="noticia" href="/sport/{{ esporte }}/6"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-7"> 
+        <div class="noticia">
+            <h3>Notícia 7</h3>
+        </div>
+    </a>
+    <a class="noticia" href="/sport/{{ esporte }}/7"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-8"> 
+        <div class="noticia">
+            <h3>Notícia 8</h3>
+        </div>
+    </a>
+    <a class="noticia" href="/sport/{{ esporte }}/8"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-9"> 
+        <div class="noticia">
+            <h3>Notícia 9</h3>
+        </div>
+    </a>
+    <a class="noticia" href="/sport/{{ esporte }}/9"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-10"> 
+        <div class="noticia">
+            <h3>Notícia 10</h3>
+        </div>
+    </a>
+    <a class="noticia" href="/sport/{{ esporte }}/10"> <img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="banner-11"> 
+        <div class="noticia">
+            <h3>Notícia 12</h3>
+        </div>
+    </a>
+</section>
+    <!-- Rodapé do Site -->
+    <footer>
+        <div class="logo">
+            <img src="../assets/images/logo.png"> | © Atletas em Foco
+        </div>
+        <p><a href="#">Políticas de Privacidade</a> | <a href="#">Contatos Comerciais</a> | <a href="#">Precisa de ajuda?</a></p>
+    </footer>
+</body>
+</html>

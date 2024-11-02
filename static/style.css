@@ -1,0 +1,231 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    gap: 20px;
+}
+
+header .left-header
+{
+    display: flex;
+    align-content: center;
+}
+
+header .logo img {
+    height: 50px;
+    padding-right: 10px;
+}
+
+nav 
+{
+    display: flex;
+    align-content: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    justify-content: start;
+}
+
+nav ul li
+{
+    display: flex;
+    align-content: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    align-content: center;
+}
+
+.user-icons a img {
+    width: 30px;
+    height: 30px;
+}
+
+.user-icons
+{
+    display: flex;
+    align-content: center;
+}
+
+.favoritos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #228B22;
+    color: black;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.favoritos h2 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.favoritos .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.slider img {
+    width: 171px;
+    height: 125px;
+}
+
+.slider button {
+    background: none; /* Remove o fundo do botão */
+    border: none; /* Remove a borda do botão */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+}
+
+.slider button img {
+    width: 50px; /* Ajuste a largura da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.slider .esporte {
+    width: 400px;
+    background-color: #f0f0f0;
+    border: 1px solid #0D0D0D;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+.slider .esporte:hover {
+    transform: scale(1.05);
+}
+
+.slider .esporte img {
+    width: 200px;
+    height: 100px;
+}
+
+/* Seções de Esportes */
+section.esportes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 50px;
+    background-color: white;
+}
+
+section.esportes .esporte {
+    width: 400px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+section.esportes .esporte:hover {
+    transform: scale(1.05);
+}
+
+section.esportes .esporte img {
+    width: 200px;
+    height: 100px;
+}
+
+.noticia-principal {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #228B22;
+    color: black;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+section.noticia-principal .noticia {
+    width: 650px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+section.noticia-principal .noticia:hover {
+    transform: scale(1.05);
+}
+
+section.noticia-principal .noticia img {
+    width: 400px;
+    height: 200px;
+}
+
+.banners {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 50px;
+    background-color: #228B22;
+}
+
+section.banners .noticia {
+    width: 300px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+section.banners .noticia:hover {
+    transform: scale(1.05);
+}
+
+section.banners .noticia img {
+    width: 200px;
+    height: 100px;
+}
+
+footer {
+    text-align: start;
+    padding: 20px;
+    background-color: #228B22;
+    color: white;
+}
+
+footer .logo img {
+    border: 1px solid #000000;
+    border-radius: 40px;
+    height: 40px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

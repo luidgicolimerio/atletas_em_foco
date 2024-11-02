@@ -1,45 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Info</title>
-    <style>
-        .team-logo {
-            width: 100px;
-            height: auto;
-        }
-        .game-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border: 1px solid #ccc;
-            margin: 20px;
-        }
-    </style>
+    <title>Atletas em Foco</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Game Information</h1>
-
-    <div class="game-container">
-        <div class="team-info">
-            <h2>{{ data.home_team }}</h2>
-            <img src="{{ data.home_logo }}" alt="{{ data.home_team }} Logo" class="team-logo">
-            <p>Score: {{ data.home_score }}</p>
+    <!-- Cabeçalho do Site -->
+    <header>
+        <div class="left-header">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}">
+            </div>
+            <nav>
+                <ul class="left-menu">
+                    <li><a href="/esporte">Futebol ▼</a></li>
+                    <li><a href="/esporte">Vôlei ▼</a></li>
+                    <li><a href="/esporte">Handebol ▼</a></li>
+                    <li><a href="/esporte">Basquete ▼</a></li>
+                    <li><a href="/esporte">MMA ▼</a></li>
+                    <li><a href="/esporte">Rugby ▼</a></li>
+                </ul>
+            </nav>
         </div>
-
-        <div>
-            <h2>VS</h2>
-            <p>Date: {{ data.date }}</p>
+        <div class="user-icons">
+            <a href="#"><img src="{{ url_for('static', filename='images/buttons/icon-settings.png') }}"></a>
         </div>
+    </header>
+    
 
-        <div class="team-info">
-            <h2>{{ data.away_team }}</h2>
-            <img src="{{ data.away_logo }}" alt="{{ data.away_team }} Logo" class="team-logo">
-            <p>Score: {{ data.away_score }}</p>
+    <!-- Seção de Favoritos -->
+    <section class="favoritos">
+        <h2>Favoritos ★</h2>
+        <div class="slider">
+            <button class="prev">
+                <img src="{{ url_for('static', filename='images/buttons/prev-button.png') }}" alt="Anterior">
+            </button>
+            <div class="esporte">
+                <a href="/esporte"><img src="{{ url_for('static', filename='images/sport-image.png') }}" alt="Esporte"></a>
+                <h3>Esporte ★</h3>
+                <p>Informações sobre Esporte.</p>
+            </div>
+            <button class="next">
+                <img src="{{ url_for('static', filename='images/buttons/next-button.png') }}" alt="Próximo">
+            </button>
         </div>
-    </div>
+    </section>
 
+    <!-- Seções de Esportes -->
+    <section class="esportes">
+        <div class="esporte">
+            <a href="/esporte/football"> <img src="{{ url_for('static', filename='images/sports/futebol.png') }}" alt="Futebol"> </a>
+            <h3>Futebol ★</h3>
+            <p>Informações sobre Futebol.</p>
+        </div>
+        <div class="esporte">
+            <a href="/esporte/volei"> <img src="{{ url_for('static', filename='images/sports/volei.png') }}" alt="Vôlei"> </a>
+            <h3>Vôlei ★</h3>
+            <p>Informações sobre Vôlei.</p>
+        </div>
+        <div class="esporte">
+            <a href="/esporte/handebol"><img src="{{ url_for('static', filename='images/sports/handebol.png') }}" alt="Handebol"></a>
+            <h3>Handebol ★</h3>
+            <p>Informações sobre Handebol.</p>
+        </div>
+        <div class="esporte">
+            <a href="/esporte/basquete"><img src="{{ url_for('static', filename='images/sports/basquete.png') }}"alt="Basquete"></a>
+            <h3>Basquete ★</h3>
+            <p>Informações sobre Basquete.</p>
+        </div>
+        <div class="esporte">
+            <a href="/esporte/mma"><img src="{{ url_for('static', filename='images/sports/MMA.png') }}" alt="MMA"></a>
+            <h3>MMA ★</h3>
+            <p>Informações sobre MMA.</p>
+        </div>
+        <div class="esporte">
+            <a href="/esporte/rugby"><img src="{{ url_for('static', filename='images/sports/rugby.png') }}" alt="Rugby"></a>
+            <h3>Rugby ★</h3>
+            <p>Informações sobre Rugby.</p>
+        </div>
+    </section>
+
+    <!-- Rodapé do Site -->
+     <footer>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"> | © Atletas em Foco
+        </div>
+        <p><a href="#">Políticas de Privacidade</a> | <a href="#">Contatos Comerciais</a> | <a href="#">Precisa de ajuda?</a></p>
+    </footer>
 </body>
 </html>

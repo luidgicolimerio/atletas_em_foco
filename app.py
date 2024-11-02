@@ -25,8 +25,11 @@ def salva_dict(api_response, esporte):
 
 @app.route('/')
 def index():
-    # return render_template('index.html')
-    return "Hello World"
+    return render_template('index.html')
+
+@app.route('/esporte/<esporte_name>')
+def esporte(esporte_name):
+    return render_template('esporte.html', esporte=esporte_name)
 
 #Esportes
 @app.route('/sport/<sport_name>/<int:game_id>')
@@ -78,9 +81,9 @@ def sport(game_id, sport_name):
     # Criação da notícia
     url = f'http://127.0.0.1:5000/gera_noticia/sport/{sport_name}/{game_id}'
     response = requests.post(url, json=dados)
-    print(response.json())
+    noticia = response.json()
     
-    return render_template('index.html', data=dados)
+    return render_template('noticia.html', data=dados, noticia=noticia)
 
 
 ######################### Rotas de Dados #########################################
