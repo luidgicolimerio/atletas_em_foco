@@ -165,7 +165,7 @@ section.esportes .esporte img {
 }
 
 section.noticia-principal .noticia {
-    width: 800px;
+    width: 650px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     text-align: center;
@@ -193,7 +193,7 @@ section.noticia-principal .noticia img {
 }
 
 section.banners .noticia {
-    width: 400px;
+    width: 300px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     text-align: center;
