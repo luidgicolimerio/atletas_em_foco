@@ -98,6 +98,10 @@ nav ul li a {
     gap: 50px;
 }
 
+.favoritos .logo img {
+    height: 70px;
+}
+
 .slider img {
     width: 171px;
     height: 125px;
