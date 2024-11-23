@@ -85,6 +85,11 @@ nav ul li a {
     padding-bottom: 20px;
 }
 
+.favoritos h3 {
+    text-align: center;
+    padding: 20px;
+}
+
 .favoritos .slider {
     display: flex;
     align-items: center;
