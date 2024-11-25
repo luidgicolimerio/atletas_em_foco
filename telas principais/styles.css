@@ -253,7 +253,7 @@ whiteFooter .logo img {
 
 .janela-opcoes {
     position: absolute;
-    background: #fff;
+    background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
@@ -262,11 +262,14 @@ whiteFooter .logo img {
     width: 200px;
 }
 
-.janela-opcoes h4 {
-    margin: 0 0 10px;
-    font-size: 16px;
-    color: #333;
+.janela-opcoes {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 10px;
+    z-index: 1000;
 }
+
 
 .janela-opcoes ul {
     list-style: none;

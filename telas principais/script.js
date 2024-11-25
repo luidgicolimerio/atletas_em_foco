@@ -1,45 +1,29 @@
-// Adiciona o evento de clique nos itens do menu
-document.querySelectorAll('.left-menu li a').forEach(menuItem => {
-    menuItem.addEventListener('click', (event) => {
-        event.preventDefault(); // Evita o redirecionamento padrão
-        mostrarJanela(menuItem.textContent.trim()); // Passa o texto do item clicado
+console.log("js carregado");
+document.addEventListener("DOMContentLoaded", () => {
+    const menuItems = document.querySelectorAll('.left-menu li a');
+
+    menuItems.forEach(menuItem => {
+        menuItem.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const janelaExistente = document.querySelector('.janela-opcoes');
+            if (janelaExistente) janelaExistente.remove();
+
+            const janela = document.createElement('div');
+            janela.className = 'janela-opcoes';
+            janela.textContent = "Janela de Teste";
+
+            document.body.appendChild(janela);
+
+            const { clientX, clientY } = event;
+            janela.style.position = 'absolute';
+            janela.style.top = `${clientY}px`;
+            janela.style.left = `${clientX}px`;
+
+            janela.style.backgroundColor = '#fff';
+            janela.style.border = '1px solid #000';
+            janela.style.padding = '10px';
+            janela.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+        });
     });
 });
-
-// Função para criar e exibir a janela
-function mostrarJanela(esporte) {
-    // Remove qualquer janela existente
-    const janelaExistente = document.querySelector('.janela-opcoes');
-    if (janelaExistente) janelaExistente.remove();
-
-    // Cria o contêiner da janela
-    const janela = document.createElement('div');
-    janela.className = 'janela-opcoes';
-
-    // Adiciona conteúdo à janela
-    janela.innerHTML = `
-        <h4>${esporte}</h4>
-        <ul>
-            <li><a href="#">Notícias</a></li>
-            <li><a href="#">Adicionar aos favoritos</a></li>
-        </ul>
-    `;
-
-    // Adiciona a janela ao corpo
-    document.body.appendChild(janela);
-
-    // Posiciona a janela próximo ao item clicado
-    janela.style.top = `${event.pageY}px`;
-    janela.style.left = `${event.pageX}px`;
-
-    // Fecha a janela ao clicar fora dela
-    document.addEventListener('click', fecharJanela, { once: true });
-}
-
-// Função para fechar a janela
-function fecharJanela(event) {
-    const janela = document.querySelector('.janela-opcoes');
-    if (janela && !janela.contains(event.target)) {
-        janela.remove();
-    }
-}
