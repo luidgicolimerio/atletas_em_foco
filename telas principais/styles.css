@@ -251,9 +251,39 @@ whiteFooter .logo img {
     height: 40px;
 }
 
+.janela-opcoes {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 200px;
+}
 
-nav ul {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+.janela-opcoes h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.janela-opcoes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.janela-opcoes ul li {
+    margin: 8px 0;
+}
+
+.janela-opcoes ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.janela-opcoes ul li a:hover {
+    text-decoration: underline;
 }
