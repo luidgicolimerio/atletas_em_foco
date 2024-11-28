@@ -1,4 +1,4 @@
-/* Reset básico */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4;
 }
 
@@ -74,7 +74,7 @@ nav ul li a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #228B22;
+    background: linear-gradient(135deg, #13ae5c, #0f6e4d);
     color: black;
     padding-top: 40px;
     padding-bottom: 60px;
@@ -171,7 +171,7 @@ section.esportes .esporte img {
     align-items: center;
     display: flex;
     justify-content: center;
-    background-color: #228B22;
+    background: linear-gradient(135deg, #13ae5c, #0f6e4d);
     color: black;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -202,7 +202,7 @@ section.noticia-principal .noticia img {
     gap: 20px;
     justify-content: center;
     padding: 50px;
-    background-color: #228B22;
+    background: linear-gradient(70deg, #13ae5c, #0f6e4d);
 }
 
 section.banners .noticia {
@@ -227,7 +227,7 @@ section.banners .noticia img {
 footer {
     text-align: start;
     padding: 20px;
-    background-color: #228B22;
+    background: linear-gradient(135deg, #13ae5c, #0f6e4d);
     color: white;
 }
 
