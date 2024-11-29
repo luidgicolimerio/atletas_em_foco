@@ -7,11 +7,52 @@
     <link rel="stylesheet" href="/telas principais/styles.css">
 </head>
 <body>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Offcanvas dark navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li>
+                      <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="d-flex mt-3" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
     <!-- Cabeçalho do Site -->
     <header>
         <div class="left-header">
             <div class="logo">
-                <a href="index.html"><img src="images/logo.png"></a>
+                <a href="index.html"><img src="/telas principais/images/logo.png"></a>
             </div>
             <nav>
                 <ul class="left-menu">
@@ -25,7 +66,7 @@
             </nav>
         </div>
         <div class="user-icons">
-            <a href="#"><img src="images/buttons/icon-settings.png"></a>
+            <a href="#"><img src="/telas principais/images/buttons/icon-settings.png"></a>
         </div>
     </header>
     
@@ -35,15 +76,15 @@
         <h2>Favoritos ★</h2>
         <div class="slider">
             <button class="prev">
-                <img src="images/buttons/prev-button.png" alt="Anterior">
+                <img src="/telas principais/images/buttons/prev-button.png" alt="Anterior">
             </button>
             <div class="esporte">
-                <a href="esporte.html"><img src="images/sport-image.png" alt="Esporte"></a>
+                <a href="esporte.html"><img src="/telas principais/images/sport-image.png" alt="Esporte"></a>
                 <h3>Esporte ★</h3>
                 <p>Informações sobre Esporte.</p>
             </div>
             <button class="next">
-                <img src="images/buttons/next-button.png" alt="Próximo">
+                <img src="/telas principais/images/buttons/next-button.png" alt="Próximo">
             </button>
         </div>
     </section>
@@ -51,32 +92,32 @@
     <!-- Seções de Esportes -->
     <section class="esportes">
         <div class="esporte">
-            <a href="esporte.html"> <img src="images/sports/futebol.png" alt="Futebol"> </a>
+            <a href="esporte.html"> <img src="/telas principais/images/sports/futebol.png" alt="Futebol"> </a>
             <h3>Futebol ★</h3>
             <p>Informações sobre Futebol.</p>
         </div>
         <div class="esporte">
-            <a href="esporte.html"> <img src="images/sports/volei.png" alt="Vôlei"> </a>
+            <a href="esporte.html"> <img src="/telas principais/images/sports/volei.png" alt="Vôlei"> </a>
             <h3>Vôlei ★</h3>
             <p>Informações sobre Vôlei.</p>
         </div>
         <div class="esporte">
-            <a href="esporte.html"><img src="images/sports/handebol.png" alt="Handebol"></a>
+            <a href="esporte.html"><img src="/telas principais/images/sports/handebol.png" alt="Handebol"></a>
             <h3>Handebol ★</h3>
             <p>Informações sobre Handebol.</p>
         </div>
         <div class="esporte">
-            <a href="esporte.html"><img src="images/sports/basquete.png" alt="Basquete"></a>
+            <a href="esporte.html"><img src="/telas principais/images/sports/basquete.png" alt="Basquete"></a>
             <h3>Basquete ★</h3>
             <p>Informações sobre Basquete.</p>
         </div>
         <div class="esporte">
-            <a href="esporte.html"><img src="images/sports/MMA.png" alt="MMA"></a>
+            <a href="esporte.html"><img src="/telas principais/images/sports/MMA.png" alt="MMA"></a>
             <h3>MMA ★</h3>
             <p>Informações sobre MMA.</p>
         </div>
         <div class="esporte">
-            <a href="esporte.html"><img src="images/sports/rugby.png" alt="Rugby"></a>
+            <a href="esporte.html"><img src="/telas principais/images/sports/rugby.png" alt="Rugby"></a>
             <h3>Rugby ★</h3>
             <p>Informações sobre Rugby.</p>
         </div>
@@ -85,7 +126,7 @@
     <!-- Rodapé do Site -->
      <footer>
         <div class="logo">
-            <img src="images/logo.png"> | © Atletas em Foco
+            <img src="/telas principais/images/logo.png"> | © Atletas em Foco
         </div>
         <p><a href="#">Políticas de Privacidade</a> | <a href="#">Contatos Comerciais</a> | <a href="#">Precisa de ajuda?</a></p>
     </footer>
