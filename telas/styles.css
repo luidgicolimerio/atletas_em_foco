@@ -64,6 +64,7 @@ header .logo img {
 
 nav 
 {
+    margin-top: 0px;
     display: flex;
     align-content: center;
     align-items: center;
@@ -200,6 +201,7 @@ section.esportes .esporte img {
 }
 
 .noticia-principal {
+    margin-top: 40px;
     align-items: center;
     display: flex;
     justify-content: center;
