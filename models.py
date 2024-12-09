@@ -76,7 +76,7 @@ class Carteira(Base):
 class Noticia(Base):
     __tablename__ = 'noticia' # Nome da tabela
     id = Column(Integer, primary_key=True)
-    categoria = Column(String(40), index=True)
+    categoria = Column(Integer, ForeignKey('categoria.id')) 
     titulo = Column(String(40), index=True)
     conteudo = Column(String(1000), index=True)
 
@@ -90,6 +90,23 @@ class Noticia(Base):
     def exclui(self):
         db_session.delete(self)
         db_session.commit()
+
+class Categoria(Base):
+    __tablename__ = 'categoria' # Nome da tabela
+    id = Column(Integer, primary_key=True)
+    esporte = Column(String(40), index=True)
+
+    def __repr__(self):
+        return f'<Categoria {self.esporte}>'
+    
+    def save(self):
+        db_session.add(self)
+        db_session.commit()
+    
+    def exclui(self):
+        db_session.delete(self)
+        db_session.commit()
+
     
 class Premiacao(Base):
     __tablename__ = 'premiacao' # Nome da tabela

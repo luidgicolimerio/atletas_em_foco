@@ -1,4 +1,4 @@
-from models import Users, Carteira
+from models import Users, Carteira, Categoria
 
 def cria_conta(name, email, senha):
     user = Users(nome=name, email=email, senha=senha)
@@ -26,9 +26,20 @@ def subtrai_saldo(i, tokens):
     carteira.save()
     print(carteira)
 
+def add_categoria(nome):
+    categoria = Categoria(esporte=nome)
+    categoria.save()
+
 if __name__ == '__main__':
-    cria_conta('Luidgi','teste@gmail.com', 'teste123')
-    consulta_usuarios(1)
-    soma_saldo(1, 20)
-    consulta_usuarios(1)
-    subtrai_saldo(1)
+    # cria_conta('Luidgi','teste@gmail.com', 'teste123')
+    # consulta_usuarios(1)
+    # soma_saldo(1, 20)
+    # consulta_usuarios(1)
+    # subtrai_saldo(1)
+    # add_categoria("futebol")
+    # add_categoria("volei")
+    # add_categoria("handball")
+    # add_categoria("basquete")
+    # add_categoria("mma")
+    # add_categoria("rugby")
+    ...
